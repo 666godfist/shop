@@ -24,7 +24,7 @@
     <body>
         <center><div class="d1">
     <?php
-
+echo 'udalo sie zalogowac';
     ?>
         </div></center>
     </body>
