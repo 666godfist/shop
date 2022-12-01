@@ -8,13 +8,14 @@
     <style>
         .d1
         {
-            background: grey;
+            background: purple;
             height: 500px;
             width: 500px;
             border: 50%;
             outline: 5px black solid;
             font-size: 20px;
             text-align: center;
+            color: white;
         }
         input
         {
@@ -28,7 +29,7 @@
 </head>
 <body>
 <?php
-        $con = new mysqli("127.0.0.1","root","","skelp-zsp");
+        $con = new mysqli("127.0.0.1","root","","sklep-zsp");
         echo '<form method="POST">';
         $res = $con->query("SELECT * FROM users");
         $cos = $res->fetch_all();
