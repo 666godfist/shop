@@ -26,7 +26,7 @@
         <center><div class="d1">
     <?php
         session_start();
-        echo 'Zalogowany jako: '.$_SESSION["login"].'';
+        echo 'Zalogowany jako: '.$_SESSION["current_user"].'';
 
         echo '<form action="index.php"><button>Wyloguj</button></form>';
         echo '<form action="dodawanie.php"><button>Wystaw</button></form>';
@@ -42,7 +42,7 @@
         echo '<div class="srodek">';
         for($i=0; $i<count($cos);$i++)
         {
-            echo 'item: '.$cos[$i][1].', Sprzedający: '.$cos1[$cos[$i][3]][1].'<br>';
+            echo 'Przedmiot: '.$cos[$i][1].', Sprzedający: '.$cos1[$cos[$i][3]][1].'<br>';
         }
 
         echo '</div></form>';

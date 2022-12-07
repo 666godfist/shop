@@ -34,29 +34,27 @@
         echo '<center><div class="d1"><h1>Logowanie:</h1><br> Nazwa Użytkownika: <input name="login"><br> Haslo: <input name="password" type="password"><br><input type="submit">';
         echo '</form>';
         echo '<form action="rejestracja.php"><button>Rejestracja</button></form></center></div>';
-        if(isset($_POST["name"]) && isset($_POST["password"])){
+        print_r($_POST);
+        if(isset($_POST["login"]) && isset($_POST["password"])){
             $user_password = $_POST["password"];
             $user_name = $_POST["login"];
-            $con = new mysqli_connect("127.0.0.1","root","", "sklep-zsp");
+            $con = new mysqli("127.0.0.1","root","", "sklep-zsp");
             
-            $query_login = $con->query("SELECT * FROM users WHERE name ='$user_login'");
+            $query_login = $con->query("SELECT * FROM users WHERE name ='$user_name' AND password='$user_password'");
             $res = $query_login->fetch_array();
             
             if(count($res) > 0) {
-               if (password_verify($user_password, $res['password'])) {
-                  $_SESSION["current_user"] = $res['id'];
-               }
+                $_SESSION["current_user"] = $res['id'];
             }
             if (isset($_SESSION["current_user"])){
                 echo 'udalo sie zalogowac';
-                header("Location: strona.php");
+                header("location: strona.php");
                 /* Użytkownik jest zalogowany */
              } else {
                 /* Użytkownik nie jest zalogowany */
-                header("Location: strona.php");
+                header("location: strona.php");
              }
           }
-          ;
         // $con = new mysqli("127.0.0.1","root","","sklep-zsp");
         // echo '<form method="POST">';
         // $res = $con->query("SELECT * FROM users WHERE password='".$_POST['password']."' AND name='".$_POST['login']."'");
