@@ -17,6 +17,7 @@ UPDATE offerts SET offerts.name="ball", offerts.description="ballowski" WHERE us
 5.zapytania pobierające oferty zakupione przez konkretnego użytkownika:
 
 SELECT name,description FROM offerts WHERE buyer_id="1";
+SELECT name, description FROM shopping WHERE id="1"
 
 6.dodawanie oferty:
 
