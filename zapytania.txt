@@ -1,30 +1,29 @@
 1.zapytanie pozwalajace sprawdzic czy uzytkownik moze sie zalgowac:
 
-SELECT id FROM users WHERE name ='$user_name' AND password='$user_password'"
+SELECT id FROM users WHERE name ='$user_name' AND password='$user_password';
 
 2.zapytanie pozwalajace sprawdzic czy uzytkownik moze sie zarejestreowac:
 
-INSERT INTO `users`(`id`, `name`, `surname`, `login`, `password`, `isadmin`) VALUES ('NULL','".$_POST["name"]."','".$_POST["surname"].
+INSERT INTO `users`(`id`, `name`, `password`, `admin`, `orders_id`) VALUES (2,"s3","s3",0,0);
 
 3.zapytania pobierające oferty konkretnego użytkownika:
 
-SELECT offerts.name from orders where id="1"
-SELECT offerts.description from offerts where id="1"
+SELECT offerts.name,offerts.description from offerts where id="1";
 
 4.zapytanie pozwalajace modyfikowanie oferty:
 
-UPDATE offerts SET offerts.name=[""], offerts description=[""] WHERE users_id="1" AND id="1"
+UPDATE offerts SET offerts.name="ball", offerts.description="ballowski" WHERE users_id="0" AND id="0";
 
 5.zapytania pobierające oferty zakupione przez konkretnego użytkownika:
 
-SELECT offerts.user_id, offerts.name, offerts.description From offerts JOIN offerts ON offerts.id where offerts.users_id="1"
+SELECT name,description FROM offerts WHERE buyer_id="1";
 
 6.dodawanie oferty:
 
-INSERT  INTO offerts (name,description,users_id) VALUES ("","","")
+INSERT INTO offerts (name,description,users_id) VALUES ("pies","czarny","1");
 
 7.Niekupione przedmioty
-SELECT offerts.name, offerts.description from offerts WHERE offerts.id NOT IN (SELECT offerts_id FROM offerts);
+SELECT name, description from offerts WHERE buyer_id="0";
 
 8.zakup przedmiotu
-INSERT INTO offerts (`id`, `users_id`) VALUES ('5','2');
+UPDATE offerts SET buyer_id="1" WHERE name="pies" AND description="czarny";

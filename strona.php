@@ -42,7 +42,7 @@
         echo '<div class="srodek">';
         for($i=0; $i<count($cos);$i++)
         {
-            echo 'Przedmiot: '.$cos[$i][1].', Sprzedający: '.$cos1[$cos[$i][3]][1].'<br>';
+            echo 'Przedmiot: '.$cos[$i][1].', Sprzedający: '.$_SESSION["current_user"].'<br>';
         }
 
         echo '</div></form>';
