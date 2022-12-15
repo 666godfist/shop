@@ -33,7 +33,7 @@
 
         $con = new mysqli("127.0.0.1","root","","sklep-zsp");
         echo '<form method="POST" action="dodawanie.php">';
-        $res = $con->query("SELECT * FROM offerts");
+        $res = $con->query("SELECT * FROM offerts WHERE users_id=".$_SESSION['current_user']);
         $cos = $res->fetch_all();
 
         $res1 = $con->query("SELECT * FROM users");
@@ -42,7 +42,7 @@
         echo '<div class="srodek">';
         for($i=0; $i<count($cos);$i++)
         {
-            echo 'Przedmiot: '.$cos[$i][1].', Sprzedający: '.$_SESSION["current_user"].'<br>';
+            echo 'Przedmiot: '.$cos[$i][1].', Sprzedający: '.$_SESSION["current_user"]. " <a href='edytowanie.php?offer_id=".$cos[$i][0]."'>Edytuj</a>'<br>";
         }
 
         echo '</div></form>';
